@@ -38,7 +38,7 @@ class GalleryView extends StatelessWidget {
                 return Column(children: [
                   GestureDetector(
                       child: CachedNetworkImage(
-                        imageUrl: state.photos[index].thumbnailUrl ?? "Error ",
+                        imageUrl: state.photos[index].thumbnailUrl!,
                         placeholder: (context, url) =>
                             Center(child: CircularProgressIndicator()),
                         errorWidget: (context, url, error) => Container(
@@ -72,7 +72,7 @@ class PhotoPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.grey,
           shadowColor: Colors.white10,
-          title: Text(photo.title ?? "Error"),
+          title: Text(photo.title!),
         ),
         body: Column(
           children: [
@@ -82,7 +82,7 @@ class PhotoPage extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.fill,
-                  image: NetworkImage(photo.url ?? 'Error'),
+                  image: NetworkImage(photo.url!),
                 ),
               ),
             )
