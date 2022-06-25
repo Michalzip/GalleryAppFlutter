@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:gallery_app/model/gallery.dart';
 import 'package:bloc/bloc.dart';
 
-late GalleryModel empty;
-
 class NavCubit extends Cubit<GalleryModel> {
-  NavCubit() : super(empty);
+  NavCubit() : super(GalleryModel(title: null));
 
   void showPostDetails(GalleryModel gallery) => emit(gallery);
 
-  void popToPosts() => emit(empty);
+  void popToPosts() => emit(GalleryModel(title: null));
 }

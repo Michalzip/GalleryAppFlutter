@@ -15,8 +15,16 @@ class NavigatorPage extends StatelessWidget {
         return Navigator(
           pages: [
             MaterialPage(child: GalleryView()),
-            if (state != null) MaterialPage(child: Text('NIE JESTEM NULL'))
+            if (state.title != null)
+              MaterialPage(
+                  child: PhotoPage(
+                photo: state,
+              ))
           ],
+          onPopPage: (route, result) {
+            // BlocProvider.of<NavCubit>(context).popToPosts();
+            return route.didPop(result);
+          },
         );
       }),
     );

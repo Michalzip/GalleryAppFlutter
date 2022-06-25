@@ -21,16 +21,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<GalleryBloc>(
-          create: (context) => GalleryBloc()..add(GetGallery()),
-        ),
-        BlocProvider<NavCubit>(
-          create: (context) => NavCubit(),
-        ),
-      ],
-      child: const NavigatorPage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider<GalleryBloc>(
+            create: (context) => GalleryBloc()..add(GetGallery()),
+          ),
+          BlocProvider<NavCubit>(
+            create: (context) => NavCubit(),
+          ),
+        ],
+        child: const NavigatorPage(),
+      ),
     );
   }
 }
