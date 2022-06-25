@@ -5,16 +5,6 @@ import 'package:gallery_app/model/gallery.dart';
 import 'package:gallery_app/nav/nav_cubit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-// class GalleryPage extends StatelessWidget {
-//   const GalleryPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocProvider(
-//         create: (_) => GalleryBloc()..add(GetGallery()), child: GalleryView());
-//   }
-// }
-
 class GalleryView extends StatelessWidget {
   const GalleryView({Key? key}) : super(key: key);
 
@@ -24,9 +14,6 @@ class GalleryView extends StatelessWidget {
       switch (state.status) {
         case PhotoCondition.initial:
           return Center(child: Text('initial'));
-
-        //return Center(child: Text('initial'));
-
         case PhotoCondition.success:
           return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
